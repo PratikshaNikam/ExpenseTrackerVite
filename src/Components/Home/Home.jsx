@@ -1,7 +1,7 @@
 import styles from './Home.module.css';
 import Card from '../Card/Card';
 import { useState, useEffect } from 'react';
-// import MyPieChart from '../PieChart/PieChart';
+import MyPieChart from '../PieChart/PieChart';
 // import TransactionsList from '../TransactionsList/Transactions';
 // import BarChartComponent from '../BarChart/BarChart';
 
@@ -127,14 +127,14 @@ export default function Home() {
           success={false }
           handleClick={() => { setIsOpenExpense(true) }} />
         
-        {/* <MyPieChart
+        <MyPieChart
         data={[
           { name: "Food", value: categorySpends.food },
           { name: "Entertainment", value: categorySpends.entertainment },
           { name: "Travel", value: categorySpends.travel },
         ]}
       
-        ></MyPieChart> */}
+        ></MyPieChart>
 
       </div>
 
