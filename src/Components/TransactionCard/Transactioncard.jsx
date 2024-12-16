@@ -1,6 +1,6 @@
 import styles from './TransactionCard.module.css';
 import { PiPizza, PiGift } from 'react-icons/pi';
-import { BsSuitCase2 } from 'react-icons/bs';
+import { BsSuitcase2 } from 'react-icons/bs';
 import { IoMdCloseCircleOutline } from 'react-icons/io';
 import { MdOutlineModeEdit } from 'react-icons/md';
 
@@ -10,7 +10,7 @@ export default function TransactionCard({ details,handleDelete,handleEdit }) {
       <div className={styles.cardInner}>
         <div className={styles.cardIcon}>
           {details.category == 'food' && <PiPizza />}
-          {details.category == 'travel' && <BsSuitCase2 />}
+          {details.category == 'travel' && <BsSuitcase2 />}
           {details.category == 'entertainment' && <PiGift />}
 
         </div>

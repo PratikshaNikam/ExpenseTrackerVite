@@ -24,7 +24,7 @@ const renderCustomizedLabel = ({
 }
 
 export default function MyPieChart({ data } )  {
-  console.log(data)
+  // console.log(data)
   return (
     <ResponsiveContainer width="100%" height={250}>
       <PieChart width={400} height={400}>

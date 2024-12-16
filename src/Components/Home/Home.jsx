@@ -2,8 +2,11 @@ import styles from './Home.module.css';
 import Card from '../Card/Card';
 import { useState, useEffect } from 'react';
 import MyPieChart from '../PieChart/PieChart';
-// import TransactionsList from '../TransactionsList/Transactions';
+import TransactionsList from '../TransactionsList/Transactions';
+import Modal from '../Modal/Modal';
 // import BarChartComponent from '../BarChart/BarChart';
+import ExpenseForm from '../Forms/ExpenseForm/ExpenseForm';
+import AddBalanceForm from '../Forms/AddBalanceForm/AddBalanceForm';
 
 export default function Home() {
   const [balance, setBalance] = useState(5000);
@@ -28,12 +31,12 @@ export default function Home() {
     travel: 0,
   });
 
-  console.log(isOpenIncome);
-  console.log(expenseList);
-  console.log(mount);
-  console.log(isOpenExpense)
-  console.log(categoryCount)
-  console.log(categorySpends)
+  // console.log(isOpenIncome);
+  // console.log(expenseList);
+  // console.log(mount);
+  // console.log(isOpenExpense)
+  // console.log(categoryCount)
+  // console.log(categorySpends)
 
   //check local balance if available use it or set balance to 5000
   useEffect(() => {
@@ -138,7 +141,7 @@ export default function Home() {
 
       </div>
 
-      {/* <div className={styles.transactionWrapper}>
+      <div className={styles.transactionWrapper}>
         <TransactionsList
           transactions={expenseList}
           editTransactions={setExpenseList}
@@ -147,15 +150,32 @@ export default function Home() {
           setBalance={setBalance}
         />
 
-        <BarChartComponent
+        {/* <BarChartComponent
           data={[
             { name: "Food", value: categoryCount.food },
             { name: "Entertainment", value: categoryCount.entertainment },
             { name: "Travel", value: categoryCount.travel },
           ]}
+        /> */}
+
+      </div>
+
+
+      <Modal isOpen={isOpenExpense} setIsOpen={setIsOpenExpense} >
+        <ExpenseForm
+          setIsOpen={setIsOpenExpense}
+          balance={balance}
+          setBalance={setBalance}
+          expenseList={expenseList}
+          setExpenseList={setExpenseList}
         />
 
-      </div> */}
+      </Modal>
+
+      <Modal isOpen={isOpenIncome} setIsOpen={setIsOpenIncome} >
+        <AddBalanceForm setIsopen={setIsOpenIncome} setBalance={setBalance} />
+
+      </Modal>
     </div>
   )
 }
