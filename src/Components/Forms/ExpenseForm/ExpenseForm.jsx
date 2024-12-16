@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react';
 import Button from "../../Button/Button";
 import { useSnackbar } from 'notistack';
 
-export default function ExpenseForm({ setIsOpen,balance,setBalance,expenseList,setExpenseList,editId }) {
+export default function ExpenseForm({ setIsOpen, balance, setBalance, expenseList, setExpenseList, editId }) {
+  
+  console.log(balance)
   const [formData, setFormData] = useState({
     title: '',
     category: '',
@@ -29,6 +31,11 @@ export default function ExpenseForm({ setIsOpen,balance,setBalance,expenseList,s
       setIsOpen(false)
       return
     }
+
+    setBalance(prev => prev - Number(formData.price))
+
+    const lastId = expenseList.length > 0 ? expenseList[0].id : 0;
+    setExpenseList(prev => [{...formData, id:lastId +1} , ...prev] )
   }
 
 
@@ -74,7 +81,8 @@ useEffect(() => {
   
   return (
     <div className={styles.container}>
-      <h3>{editId ? 'Edit Expense' : 'Add Expenses'}</h3>
+      <h3>{editId ? 'Edit Expense' : 'Add Expense'}</h3>
+      {console.log(editId)}
       
       <form onSubmit={editId ? handleEdit : handleAdd}>
         <input type="text" name="title" placeholder="Title" value={formData.title} onChange={handleChange} required />

@@ -8,13 +8,13 @@ function App() {
 
 
   return (
-    <>
+    
       <SnackbarProvider>  
         <Home/>
         
         </SnackbarProvider>
         
-    </>
+    
   )
 }
 

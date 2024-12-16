@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import MyPieChart from '../PieChart/PieChart';
 import TransactionsList from '../TransactionsList/Transactions';
 import Modal from '../Modal/Modal';
-// import BarChartComponent from '../BarChart/BarChart';
+import BarChartComponent from '../BarChart/BarChart';
 import ExpenseForm from '../Forms/ExpenseForm/ExpenseForm';
 import AddBalanceForm from '../Forms/AddBalanceForm/AddBalanceForm';
 
@@ -150,13 +150,13 @@ export default function Home() {
           setBalance={setBalance}
         />
 
-        {/* <BarChartComponent
+        <BarChartComponent
           data={[
             { name: "Food", value: categoryCount.food },
             { name: "Entertainment", value: categoryCount.entertainment },
             { name: "Travel", value: categoryCount.travel },
           ]}
-        /> */}
+        />
 
       </div>
 
